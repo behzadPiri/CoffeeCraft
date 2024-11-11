@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Vazir-Bold-FD-WOL.ttf",
+      "sha1": "b2deb38c541ed24827690772055dee336e256723"
+    },
+    {
+      "path": "src/assets/fonts/Vazir-FD-WOL.ttf",
+      "sha1": "64e1c27f72fa0a5c029cbbec68e9de945d75b9a8"
+    }
+  ]
+}
