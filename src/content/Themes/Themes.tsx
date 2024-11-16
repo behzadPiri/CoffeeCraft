@@ -5,51 +5,68 @@ export const {width, height} = Dimensions.get('window');
 
 const Colors = {
   dark: {
-    background: '#121212',
-    primaryText: '#E0E0E0',
-    secondaryText: '#A3A3A3',
-    primary: '#D2691E',
-    secondary: '#FFA07A',
-    inputBackground: '#1E1E1E',
-    icon: '#A3A3A3',
-    button: '#D2691E',
-    radio: '#FFA07A',
-    checkbox: '#FFA07A',
-    border: '#333333',
-    shadow: 'rgba(0, 0, 0, 0.6)',
-    modalBackground: '#1E1E1E',
+    background: '#181818', // رنگ مشکی بسیار تیره برای پس‌زمینه اصلی، ایجاد کنتراست بالا
+    primaryText: '#D4D4D4', // رنگ خاکستری روشن برای متن‌های اصلی، خوانایی بالا روی پس‌زمینه تیره
+    secondaryText: '#8A8A8A', // خاکستری ملایم برای متن‌های فرعی و جزئیات کمتر مهم
+    primary: '#B46A2C', // قهوه‌ای ملایم به‌عنوان رنگ اصلی، برای دکمه‌ها و عناصر برجسته
+    secondary: '#E68A6D', // نارنجی مایل به صورتی ملایم برای اجزای فرعی مانند نشانه‌گرها یا دکمه‌های کمکی
+    inputBackground: '#2A2A2A', // خاکستری تیره برای پس‌زمینه فیلدهای ورودی، هماهنگ با پس‌زمینه دارک
+    icon: '#8A8A8A', // خاکستری متوسط برای آیکون‌ها، خوانایی مناسب روی پس‌زمینه تیره
+    button: '#B46A2C', // همان رنگ قهوه‌ای primary برای دکمه‌ها، ایجاد انسجام در تم
+    buttonDisabled: '#7B4F27D2', // رنگ قهوه‌ای کم‌رنگ‌تر برای دکمه‌های غیرفعال در تم تاریک
+    secondaryDisabled: '#A97B6BD3', // رنگ نارنجی کم‌رنگ‌تر برای دکمه‌های غیرفعال ثانویه
+    radio: '#E68A6D', // رنگ نارنجی-صورتی برای دکمه‌های رادیویی، هماهنگ با secondary
+    checkbox: '#E68A6D', // رنگ چک‌باکس‌ها که با رنگ radio هم‌خوانی دارد
+    border: '#4D4D4D', // خاکستری تیره‌تر برای خطوط و حاشیه‌ها، کنتراست ملایم با پس‌زمینه
+    shadowDark: 'rgba(0, 0, 0, 0.5)', // سایه مشکی با شفافیت ۵۰٪ برای ایجاد عمق و برجستگی
+    shadowLight: 'rgba(255, 255, 255, 0.3)', // سایه مشکی با شفافیت ۵۰٪ برای ایجاد عمق و برجستگی
+    modalBackground: '#222222', // پس‌زمینه تیره برای مودال‌ها، نزدیک به رنگ پس‌زمینه اصلی اما با تمایز
+    disabled: '#3D3D3D', // خاکستری کم‌رنگ‌تر برای عناصر غیرفعال، نشان‌دهنده وضعیت غیرفعال
+    white: '#ffffff',
+    android_ripple: 'rgba(0, 0, 0, 0.1)',
   },
   light: {
-    background: '#FFFFFF',
-    primaryText: '#2E2E2E',
-    secondaryText: '#5C5C5C',
-    primary: '#8B4513',
-    secondary: '#FF4500',
-    inputBackground: '#F5F5F5',
-    icon: '#5C5C5C',
-    button: '#8B4513',
-    radio: '#FF4500',
-    checkbox: '#FF4500',
-    border: '#DDDDDD',
-    shadow: 'rgba(0, 0, 0, 0.2)',
-    modalBackground: '#FFFFFF',
+    background: '#F8F8F8', // سفید نزدیک به خاکستری روشن برای پس‌زمینه اصلی، مناسب برای تم روشن
+    primaryText: '#3B3B3B', // خاکستری تیره برای متن‌های اصلی، خوانایی بالا روی پس‌زمینه روشن
+    secondaryText: '#6F6F6F', // خاکستری متوسط برای متن‌های فرعی و جزئیات کمتر مهم
+    primary: '#9A6D3A', // قهوه‌ای روشن به‌عنوان رنگ اصلی، برای دکمه‌ها و عناصر برجسته
+    secondary: '#FF7B5A', // نارنجی-صورتی روشن برای اجزای فرعی مانند دکمه‌های کمکی
+    inputBackground: '#FFFFFF', // سفید برای پس‌زمینه فیلدهای ورودی، سازگار با پس‌زمینه روشن
+    icon: '#6F6F6F', // خاکستری متوسط برای آیکون‌ها، با کنتراست مناسب روی پس‌زمینه روشن
+    button: '#9A6D3A', // همان رنگ primary برای دکمه‌ها، ایجاد هماهنگی در طراحی
+    buttonDisabled: '#C0A173', // رنگ قهوه‌ای روشن‌تر برای دکمه‌های غیرفعال در تم روشن
+    secondaryDisabled: '#FFC2AD', // رنگ نارنجی کم‌رنگ‌تر برای دکمه‌های غیرفعال ثانویه
+    radio: '#FF7B5A', // رنگ نارنجی-صورتی برای دکمه‌های رادیویی، هماهنگ با secondary
+    checkbox: '#FF7B5A', // رنگ چک‌باکس‌ها که با رنگ radio هم‌خوانی دارد
+    border: '#E0E0E0', // خاکستری بسیار روشن برای خطوط و حاشیه‌ها، همخوانی با پس‌زمینه روشن
+    shadowDark: 'rgba(0, 0, 0, 0.15)', // سایه مشکی کم‌رنگ با شفافیت ۱۵٪ برای عمق‌بخشی ملایم
+    shadowLight: '#000000B5', // سایه مشکی کم‌رنگ با شفافیت ۱۵٪ برای عمق‌بخشی ملایم
+    modalBackground: '#FFFFFF', // سفید برای پس‌زمینه مودال‌ها، تطابق با پس‌زمینه روشن
+    disabled: '#B0B0B0', // خاکستری کم‌رنگ برای عناصر غیرفعال، نشان‌دهنده وضعیت غیرفعال در تم روشن
+    white: '#ffffff',
+    android_ripple: 'rgba(0, 0, 0, 0.1)',
   },
 };
 
 
-export function useThemeColors() {
-  const theme = Appearance.getColorScheme(); // Get theme directly without hook
+// هوک `useThemeColors` برای تعیین رنگ‌های تم (سایه روشن یا تاریک) بر اساس تنظیمات سیستم کاربر استفاده می‌شود.
+// ابتدا، با استفاده از `Appearance.getColorScheme()` تم فعلی سیستم کاربر (تاریک یا روشن) گرفته می‌شود.
+// سپس، بر اساس تم فعلی، رنگ‌های مناسب از `Colors.dark` یا `Colors.light` برگشت داده می‌شود.
+export const useThemeColors = () => {
+  const theme = Appearance.getColorScheme(); // تم سیستم کاربر را به صورت مستقیم بدون استفاده از هوک می‌گیریم
   return theme === 'dark' ? Colors.dark : Colors.light;
-}
+};
 
+
+// این شیء `Fonts` شامل اندازه‌های مختلف فونت است که به‌طور معمول در طراحی رابط کاربری استفاده می‌شود.
 export const Fonts = {
-  font_8: normalizeFont(8),
-  font_10: normalizeFont(10),
-  font_12: normalizeFont(12),
-  font_14: normalizeFont(14),
-  font_16: normalizeFont(16),
-  font_18: normalizeFont(18),
-  font_24: normalizeFont(24),
-  font_32: normalizeFont(24),
-  font_48: normalizeFont(24),
+  extraSmall: normalizeFont(10), // اندازه مناسب برای متن‌های کوچک
+  small: normalizeFont(12), // متن‌های کوچک و توضیحات
+  medium: normalizeFont(14), // متن‌های عادی و توضیحات طولانی‌تر
+  regular: normalizeFont(16), // متن‌های استاندارد
+  large: normalizeFont(18), // برای مواردی که باید برجسته‌تر باشند
+  extraLarge: normalizeFont(20), // مناسب برای زیرعنوان‌ها
+  title: normalizeFont(26), // عنوان‌ها و سرصفحه‌های مهم
+  header: normalizeFont(34), // تیترها و عنوان‌های اصلی
+  display: normalizeFont(48), // متن‌های بسیار بزرگ مثل نمایشگر یا عناوین اصلی
 };
