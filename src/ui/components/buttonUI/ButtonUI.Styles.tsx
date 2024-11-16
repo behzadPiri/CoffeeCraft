@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Fonts, useThemeColors, width} from '../../../content/Themes/Themes.tsx';
+import {Fonts, useThemeColors} from '../../../content/Themes/Themes.tsx';
 
 const Colors = useThemeColors();
 
