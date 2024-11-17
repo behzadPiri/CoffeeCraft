@@ -6,7 +6,7 @@ import LottieView from 'lottie-react-native';
 import {TextUI} from '../../../ui';
 
 const Splash = () => {
-  const {} = useSplashViewModal();
+  const {lottieFileColor} = useSplashViewModal();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -15,6 +15,7 @@ const Splash = () => {
         autoPlay
         resizeMode="contain"
         loop
+        colorFilters={lottieFileColor}
         style={styles.lottieWrapper}
       />
       <TextUI text={'با کافه هنر هر لحظه‌ی شما خاص‌تر می‌شود!'} />

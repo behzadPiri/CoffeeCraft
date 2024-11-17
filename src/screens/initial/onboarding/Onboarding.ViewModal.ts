@@ -1,5 +1,5 @@
 import {OnboardingModal} from './Onboarding.Modal.ts';
-import {useThemeColors} from '../../../content/Themes/Themes.tsx';
+import {useThemeColors, width} from '../../../content/Themes/Themes.tsx';
 import {useState} from 'react';
 import {
   interpolate,
@@ -21,13 +21,14 @@ const useOnboardingViewModal = (): OnboardingModal => {
   // Shared values برای انیمیشن
   const imageOpacity = useSharedValue(1);
   const textOpacity = useSharedValue(1);
+  const imageTranslateX = useSharedValue(0);
   const textTranslateY = useSharedValue(0);
   const shadowColorProgress = useSharedValue(0);
 
   // استایل انیمیشن تصویر
   const animatedImageStyle = useAnimatedStyle(() => ({
     opacity: imageOpacity.value,
-
+    transform: [{ translateX: imageTranslateX.value }],
   }));
 
   // استایل انیمیشن متن
@@ -65,6 +66,7 @@ const useOnboardingViewModal = (): OnboardingModal => {
       imageOpacity.value = withTiming(0, {duration: 300});
       textOpacity.value = withTiming(0, {duration: 300});
       shadowColorProgress.value = withTiming(1, {duration: 300});
+      imageTranslateX.value = withTiming(-width, { duration: 300 });
       textTranslateY.value = withTiming(-20, {duration: 300}, () => {
         // تغییر اسلاید به بعدی
         runOnJS(setCurrentIndex)(currentIndex + 1);
@@ -73,6 +75,7 @@ const useOnboardingViewModal = (): OnboardingModal => {
         imageOpacity.value = withTiming(1, {duration: 300});
         textOpacity.value = withTiming(1, {duration: 300});
         textTranslateY.value = withTiming(0, {duration: 300});
+        imageTranslateX.value = withTiming(0, { duration: 300 });
         shadowColorProgress.value = withTiming(0, {duration: 300});
       });
     } else {
