@@ -24,7 +24,7 @@ const BaseModal: FC<BaseModalProps> = memo(props => {
       transparent={transparent}
       onRequestClose={handlerCloseModal} // بسته شدن Modal هنگام فشردن دکمه برگشت (Back) در اندروید
       >
-      {children}
+      {children} {/*نمایش محتوای داخلی Modal*/}
     </Modal>
   );
 });
