@@ -1,9 +1,10 @@
 import {Appearance, Dimensions} from 'react-native';
 import {normalizeFont} from '../normalize/Normalize.tsx';
+import {ThemeColorsType} from '../../common/types/ThemeColors.Type.ts';
 
 export const {width, height} = Dimensions.get('window');
 
-const Colors = {
+const Colors: {[key: string]: ThemeColorsType} = {
   dark: {
     background: '#181818', // رنگ مشکی بسیار تیره برای پس‌زمینه اصلی، ایجاد کنتراست بالا
     primaryText: '#D4D4D4', // رنگ خاکستری روشن برای متن‌های اصلی، خوانایی بالا روی پس‌زمینه تیره
@@ -23,10 +24,11 @@ const Colors = {
     modalBackground: '#222222', // پس‌زمینه تیره برای مودال‌ها، نزدیک به رنگ پس‌زمینه اصلی اما با تمایز
     disabled: '#3D3D3D', // خاکستری کم‌رنگ‌تر برای عناصر غیرفعال، نشان‌دهنده وضعیت غیرفعال
     white: '#ffffff',
-    android_ripple: 'rgba(0, 0, 0, 0.1)',
+    error: '#c53939',
+    android_ripple: 'rgba(0, 0, 0, 0.2)',
   },
   light: {
-    background: '#F8F8F8', // سفید نزدیک به خاکستری روشن برای پس‌زمینه اصلی، مناسب برای تم روشن
+    background: '#9f9c9c', // سفید نزدیک به خاکستری روشن برای پس‌زمینه اصلی، مناسب برای تم روشن
     primaryText: '#3B3B3B', // خاکستری تیره برای متن‌های اصلی، خوانایی بالا روی پس‌زمینه روشن
     secondaryText: '#6F6F6F', // خاکستری متوسط برای متن‌های فرعی و جزئیات کمتر مهم
     primary: '#9A6D3A', // قهوه‌ای روشن به‌عنوان رنگ اصلی، برای دکمه‌ها و عناصر برجسته
@@ -38,16 +40,16 @@ const Colors = {
     secondaryDisabled: '#FFC2AD', // رنگ نارنجی کم‌رنگ‌تر برای دکمه‌های غیرفعال ثانویه
     radio: '#FF7B5A', // رنگ نارنجی-صورتی برای دکمه‌های رادیویی، هماهنگ با secondary
     checkbox: '#FF7B5A', // رنگ چک‌باکس‌ها که با رنگ radio هم‌خوانی دارد
-    border: '#E0E0E0', // خاکستری بسیار روشن برای خطوط و حاشیه‌ها، همخوانی با پس‌زمینه روشن
+    border: '#757474', // خاکستری بسیار روشن برای خطوط و حاشیه‌ها، همخوانی با پس‌زمینه روشن
     shadowDark: 'rgba(0, 0, 0, 0.15)', // سایه مشکی کم‌رنگ با شفافیت ۱۵٪ برای عمق‌بخشی ملایم
     shadowLight: '#000000B5', // سایه مشکی کم‌رنگ با شفافیت ۱۵٪ برای عمق‌بخشی ملایم
     modalBackground: '#FFFFFF', // سفید برای پس‌زمینه مودال‌ها، تطابق با پس‌زمینه روشن
     disabled: '#B0B0B0', // خاکستری کم‌رنگ برای عناصر غیرفعال، نشان‌دهنده وضعیت غیرفعال در تم روشن
     white: '#ffffff',
-    android_ripple: 'rgba(0, 0, 0, 0.1)',
+    error: '#c53939',
+    android_ripple: 'rgba(0, 0, 0, 0.2)',
   },
 };
-
 
 // هوک `useThemeColors` برای تعیین رنگ‌های تم (سایه روشن یا تاریک) بر اساس تنظیمات سیستم کاربر استفاده می‌شود.
 // ابتدا، با استفاده از `Appearance.getColorScheme()` تم فعلی سیستم کاربر (تاریک یا روشن) گرفته می‌شود.
@@ -56,7 +58,6 @@ export const useThemeColors = () => {
   const theme = Appearance.getColorScheme(); // تم سیستم کاربر را به صورت مستقیم بدون استفاده از هوک می‌گیریم
   return theme === 'dark' ? Colors.dark : Colors.light;
 };
-
 
 // این شیء `Fonts` شامل اندازه‌های مختلف فونت است که به‌طور معمول در طراحی رابط کاربری استفاده می‌شود.
 export const Fonts = {

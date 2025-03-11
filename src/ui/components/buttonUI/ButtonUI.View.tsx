@@ -1,19 +1,18 @@
-import {FC, memo} from 'react';
 import {Pressable, View} from 'react-native';
 import styles from './ButtonUI.Styles';
 import {TextUI} from '../../index';
 import {ButtonUIProps} from './ButtonUI.Types';
 import {useThemeColors} from '../../../content/Themes/Themes';
-import useButtonViewModel from './ButtonUI.ViewModal.ts';
 import LottieView from 'lottie-react-native';
 import lottieFiles from '../../../content/lottieFiles/lottieFiles.tsx';
 
-const ButtonUI: FC<ButtonUIProps> = memo(props => {
+const ButtonUI = (props: ButtonUIProps) => {
+
   const Colors = useThemeColors();
 
   const {
-    loading,
-    isDualButton,
+    loading=false,
+    isDualButton=false,
     singleButtonStyle,
     leftButtonDisabled = false,
     leftButtonStyle,
@@ -23,10 +22,10 @@ const ButtonUI: FC<ButtonUIProps> = memo(props => {
     leftButtonText,
     rightButtonText,
     singleButtonText,
+    onPressPrimary,
+    onPressRight,
+    onPressLeft
   } = props;
-
-  const {handlePressLeft, handlePressPrimary, handlePressRight} =
-    useButtonViewModel(props);
 
   return (
     <>
@@ -34,7 +33,7 @@ const ButtonUI: FC<ButtonUIProps> = memo(props => {
         <View style={styles.dualButtonWrapper}>
           <Pressable
             android_ripple={{color: Colors.android_ripple, foreground: true}}
-            onPress={handlePressRight}
+            onPress={onPressRight}
             disabled={rightButtonDisabled}
             style={[
               styles.buttonWrapper,
@@ -57,7 +56,7 @@ const ButtonUI: FC<ButtonUIProps> = memo(props => {
           <Pressable
             android_ripple={{color: Colors.android_ripple, foreground: true}}
             disabled={leftButtonDisabled}
-            onPress={handlePressLeft}
+            onPress={onPressLeft}
             style={[
               styles.buttonWrapper,
               styles.leftButton,
@@ -72,7 +71,7 @@ const ButtonUI: FC<ButtonUIProps> = memo(props => {
         <Pressable
           android_ripple={{color: Colors.android_ripple, foreground: true}}
           disabled={singleButtonDisabled}
-          onPress={handlePressPrimary}
+          onPress={onPressPrimary}
           style={[
             styles.container,
             singleButtonStyle,
@@ -93,6 +92,6 @@ const ButtonUI: FC<ButtonUIProps> = memo(props => {
       )}
     </>
   );
-});
+};
 
 export default ButtonUI;

@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View,SafeAreaView} from 'react-native';
 import Animated from 'react-native-reanimated';
 import styles from './Onboarding.Styles.tsx';
-import {OnboardingSlideData} from '../../../utils/OnboardingSlideData.tsx';
+import {OnboardingSlideData} from '../../../common/utils/OnboardingSlideData.tsx';
 import {ButtonUI, TextUI} from '../../../ui';
 import useOnboardingViewModal from './Onboarding.ViewModal.ts';
 
@@ -16,7 +16,7 @@ const Onboarding = () => {
   } = useOnboardingViewModal();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* بخش تصویر */}
       <View style={styles.SliderWrapper}>
         <Animated.View style={[styles.sliderImageWrapper, animatedShadowStyle]}>
@@ -56,7 +56,7 @@ const Onboarding = () => {
           onPressPrimary={handleNext}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

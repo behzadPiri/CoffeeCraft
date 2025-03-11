@@ -1,20 +1,19 @@
-import {FC, memo} from 'react';
 import styles from './TextUI.Styles.tsx';
 import Animated from 'react-native-reanimated';
 import {TextUIProps} from './TextUI.Types.ts';
 
 // یک کامپوننت مخصوص برای نمایش متن با امکانات اضافی
-const TextUI: FC<TextUIProps> = memo(props => {
+const TextUI= (propsApp:TextUIProps) => {
   const {
     text,
     style,
-    children,
-    subTitle,
     onPressText,
     bold = false,
     numberOfLines = 1,
     adjustsFontSizeToFit = false,
-  } = props;
+    ...props
+  } = propsApp;
+
 
   const fontStyle = {
     fontFamily: bold ? 'Vazir-Bold-FD-WOL' : 'Vazir-FD-WOL',
@@ -22,15 +21,13 @@ const TextUI: FC<TextUIProps> = memo(props => {
 
   return (
     <Animated.Text
-      onPress={() => onPressText && onPressText(text)}
+      {...props}
       numberOfLines={numberOfLines}
       adjustsFontSizeToFit={adjustsFontSizeToFit}
       style={[styles.container, fontStyle, style]}>
       {text}
-      {children}
-      {subTitle}
     </Animated.Text>
   );
-});
+};
 
 export default TextUI;

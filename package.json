@@ -22,7 +22,7 @@
     "react-hook-form": "^7.53.1",
     "react-native": "0.76.1",
     "react-native-maps": "^1.14.0",
-    "react-native-reanimated": "^3.16.1",
+    "react-native-reanimated": "^3.16.3",
     "react-native-safe-area-context": "^4.14.0",
     "react-native-screens": "^4.0.0",
     "react-redux": "^9.1.2",

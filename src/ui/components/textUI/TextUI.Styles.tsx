@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   container: {
     color: Colors.primaryText,
     fontSize: Fonts.medium,
-    flexShrink: 1,
+    // flexShrink: 1,
   },
 });
 

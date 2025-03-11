@@ -1,21 +1,17 @@
-import {FC, memo} from 'react';
 import {Pressable, View} from 'react-native';
 import styles from './CheckRadioGroup.Styles.tsx';
 import {CheckRadioGroupProps} from './CheckRadioGroup.Types.ts';
-import useCheckRadioGroupViewModal from './CheckRadioGroup.ViewModal.ts';
 
 /*این کامپوننت برای ایجاد دو نوع انتخاب (CheckBox و RadioBox) استفاده می‌شود.*/
-const CheckRadioGroup: FC<CheckRadioGroupProps> = memo(props => {
+const CheckRadioGroup = (props: CheckRadioGroupProps) => {
   const {
     styleBox, // استایل سفارشی برای جعبه خارجی
     selectBox, // وضعیت انتخاب: true = انتخاب شده، false = لغو انتخاب
     styleSelector, // استایل سفارشی برای ویو داخلی
     disabled = false, // (پیش‌فرض: false) تعیین می‌کند آیا جعبه غیرفعال است یا خیر
     type = 'checkBox', // (پیش‌فرض: checkBox) نوع جعبه: CheckBox یا RadioBox
+    onPressSelection, // متد مدیریت انتخاب selection
   } = props;
-
-  /* استفاده از ViewModal برای مدیریت عملکرد*/
-  const {handlePress} = useCheckRadioGroupViewModal(props);
 
   /*بررسی نوع انتخاب Box*/
   const isCheckBox = type === 'checkBox';
@@ -23,7 +19,7 @@ const CheckRadioGroup: FC<CheckRadioGroupProps> = memo(props => {
   return (
     <Pressable
       disabled={disabled}
-      onPress={handlePress}
+      onPress={onPressSelection}
       hitSlop={10}
       pointerEvents="box-only"
       style={[
@@ -44,6 +40,6 @@ const CheckRadioGroup: FC<CheckRadioGroupProps> = memo(props => {
       />
     </Pressable>
   );
-});
+};
 
 export default CheckRadioGroup;

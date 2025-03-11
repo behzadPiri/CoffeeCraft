@@ -9,8 +9,8 @@ import {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {OnboardingSlideData} from '../../../utils/OnboardingSlideData.tsx';
-import {useNavigation} from '@react-navigation/native';
+import {OnboardingSlideData} from '../../../common/utils/OnboardingSlideData.tsx';
+import {CommonActions, useNavigation} from '@react-navigation/native';
 import {OnboardingScreenNavigationProp} from '../../../navigation/initial/Initial.Types.ts';
 
 const useOnboardingViewModal = (): OnboardingModal => {
@@ -28,7 +28,7 @@ const useOnboardingViewModal = (): OnboardingModal => {
   // استایل انیمیشن تصویر
   const animatedImageStyle = useAnimatedStyle(() => ({
     opacity: imageOpacity.value,
-    transform: [{ translateX: imageTranslateX.value }],
+    transform: [{translateX: imageTranslateX.value}],
   }));
 
   // استایل انیمیشن متن
@@ -56,7 +56,6 @@ const useOnboardingViewModal = (): OnboardingModal => {
     };
   });
 
-
   // تابع تغییر اسلاید
   const handleNext = () => {
     'worklet';
@@ -66,7 +65,7 @@ const useOnboardingViewModal = (): OnboardingModal => {
       imageOpacity.value = withTiming(0, {duration: 300});
       textOpacity.value = withTiming(0, {duration: 300});
       shadowColorProgress.value = withTiming(1, {duration: 300});
-      imageTranslateX.value = withTiming(-width, { duration: 300 });
+      imageTranslateX.value = withTiming(-width, {duration: 300});
       textTranslateY.value = withTiming(-20, {duration: 300}, () => {
         // تغییر اسلاید به بعدی
         runOnJS(setCurrentIndex)(currentIndex + 1);
@@ -75,12 +74,16 @@ const useOnboardingViewModal = (): OnboardingModal => {
         imageOpacity.value = withTiming(1, {duration: 300});
         textOpacity.value = withTiming(1, {duration: 300});
         textTranslateY.value = withTiming(0, {duration: 300});
-        imageTranslateX.value = withTiming(0, { duration: 300 });
+        imageTranslateX.value = withTiming(0, {duration: 300});
         shadowColorProgress.value = withTiming(0, {duration: 300});
       });
     } else {
-      // رفتار در پایان اسلایدر
-      // navigation.addListener()
+      return navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: 'Authentication', params: {screen: 'Login'}}],
+        }),
+      );
     }
   };
 

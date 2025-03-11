@@ -1,6 +1,4 @@
-
-import {NativeStackNavigationProp,} from '@react-navigation/native-stack';
-import {Onboarding, Splash} from '../../screens';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   Splash: undefined;

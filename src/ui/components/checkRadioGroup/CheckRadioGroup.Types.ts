@@ -6,5 +6,5 @@ export interface CheckRadioGroupProps {
   styleSelector?:StyleProp<ViewStyle> // استایل سفارشی برای ویو داخلی
   disabled?:boolean // (پیش‌فرض: false) تعیین می‌کند آیا جعبه غیرفعال است یا خیر
   selectBox:boolean   // وضعیت انتخاب: true = انتخاب شده، false = لغو انتخاب
-  onPressSelection:(value:boolean)=>void  // متد مدیریت انتخاب selection
+  onPressSelection:()=>void  // متد مدیریت انتخاب selection
 }

@@ -1,4 +1,3 @@
-import {FC, memo} from 'react';
 import {View} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {ButtonUI, TextUI} from '../../index.tsx';
@@ -6,7 +5,7 @@ import styles from './StatusView.Styles.tsx';
 import {StateViewProps} from './StatusView.Types.ts';
 import useStateViewModel from './StatusView.ViewModal.ts';
 
-const StatusViewView: FC<StateViewProps> = memo(props => {
+const StatusViewView= (props:StateViewProps) => {
   const {
     speed,
     styleText,
@@ -52,6 +51,6 @@ const StatusViewView: FC<StateViewProps> = memo(props => {
       )}
     </View>
   );
-});
+};
 
 export default StatusViewView;
